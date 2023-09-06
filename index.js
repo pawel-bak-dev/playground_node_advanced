@@ -13,7 +13,7 @@ require('./services/cache');
 mongoose.Promise = global.Promise;
 mongoose.connect(keys.mongoURI, {
   useNewUrlParser: true,
-  useUnifiedTopology: true,
+  useUnifiedTopology: true
 });
 
 const app = express();
@@ -40,7 +40,7 @@ if (['production'].includes(process.env.NODE_ENV)) {
   });
 }
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5010;
 app.listen(PORT, () => {
   console.log(`Listening on port`, PORT);
 });
