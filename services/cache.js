@@ -26,8 +26,6 @@ mongoose.Query.prototype.exec = async function () {
 
   const cacheValue = await client.hget(this.hashKey, key);
 
-  console.log('cacheValue - ', cacheValue);
-
   if (cacheValue) {
     const doc = JSON.parse(cacheValue);
 
