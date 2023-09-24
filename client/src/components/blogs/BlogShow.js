@@ -7,6 +7,16 @@ class BlogShow extends Component {
     this.props.fetchBlog(this.props.match.params._id);
   }
 
+  renderImage() {
+    const { imageUrl } = this.props.blog;
+
+    if (!imageUrl) return;
+
+    const src = `https://playground-node-advanced-blog-bucket.s3.eu-central-1.amazonaws.com/${imageUrl}`;
+
+    return <img src={src} width={400} />;
+  }
+
   render() {
     if (!this.props.blog) {
       return '';
@@ -18,6 +28,7 @@ class BlogShow extends Component {
       <div>
         <h3>{title}</h3>
         <p>{content}</p>
+        {this.renderImage()}
       </div>
     );
   }
